@@ -2,3 +2,7 @@
 #define __COCOA_PODS
 
 #define __POD_AFNetworking
+#define __POD_Mantle
+#define __POD_libextobjc_EXTKeyPathCoding
+#define __POD_libextobjc_EXTScope
+#define __POD_libextobjc_RuntimeExtensions
