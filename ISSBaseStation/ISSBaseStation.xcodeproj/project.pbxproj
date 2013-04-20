@@ -29,6 +29,11 @@
 		C905BD82172309B4005FD615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD4F172309B4005FD615 /* Foundation.framework */; };
 		C905BD8A172309B4005FD615 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C905BD88172309B4005FD615 /* InfoPlist.strings */; };
 		C905BD8D172309B4005FD615 /* ISSBaseStationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD8C172309B4005FD615 /* ISSBaseStationTests.m */; };
+		C905BD9717230A54005FD615 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9617230A54005FD615 /* CoreMotion.framework */; };
+		C905BD9917230A5C005FD615 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9817230A5B005FD615 /* CoreLocation.framework */; };
+		C905BD9C17230BE6005FD615 /* ISSARView.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD9B17230BE6005FD615 /* ISSARView.m */; };
+		C905BD9E17230C44005FD615 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9D17230C44005FD615 /* AVFoundation.framework */; };
+		C905BDA017230DBC005FD615 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9F17230DBC005FD615 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,12 @@
 		C905BD89172309B4005FD615 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C905BD8B172309B4005FD615 /* ISSBaseStationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSBaseStationTests.h; sourceTree = "<group>"; };
 		C905BD8C172309B4005FD615 /* ISSBaseStationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSBaseStationTests.m; sourceTree = "<group>"; };
+		C905BD9617230A54005FD615 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C905BD9817230A5B005FD615 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C905BD9A17230BE6005FD615 /* ISSARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSARView.h; sourceTree = "<group>"; };
+		C905BD9B17230BE6005FD615 /* ISSARView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSARView.m; sourceTree = "<group>"; };
+		C905BD9D17230C44005FD615 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C905BD9F17230DBC005FD615 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C905BDA017230DBC005FD615 /* QuartzCore.framework in Frameworks */,
+				C905BD9E17230C44005FD615 /* AVFoundation.framework in Frameworks */,
+				C905BD9917230A5C005FD615 /* CoreLocation.framework in Frameworks */,
+				C905BD9717230A54005FD615 /* CoreMotion.framework in Frameworks */,
 				C905BD4E172309B4005FD615 /* UIKit.framework in Frameworks */,
 				C905BD50172309B4005FD615 /* Foundation.framework in Frameworks */,
 				C905BD52172309B4005FD615 /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +115,10 @@
 		C905BD41172309B4005FD615 = {
 			isa = PBXGroup;
 			children = (
+				C905BD9F17230DBC005FD615 /* QuartzCore.framework */,
+				C905BD9D17230C44005FD615 /* AVFoundation.framework */,
+				C905BD9817230A5B005FD615 /* CoreLocation.framework */,
+				C905BD9617230A54005FD615 /* CoreMotion.framework */,
 				C905BD53172309B4005FD615 /* ISSBaseStation */,
 				C905BD85172309B4005FD615 /* ISSBaseStationTests */,
 				C905BD4C172309B4005FD615 /* Frameworks */,
@@ -143,6 +162,8 @@
 				C905BD75172309B4005FD615 /* second.png */,
 				C905BD77172309B4005FD615 /* second@2x.png */,
 				C905BD54172309B4005FD615 /* Supporting Files */,
+				C905BD9A17230BE6005FD615 /* ISSARView.h */,
+				C905BD9B17230BE6005FD615 /* ISSARView.m */,
 			);
 			path = ISSBaseStation;
 			sourceTree = "<group>";
@@ -300,6 +321,7 @@
 				C905BD5E172309B4005FD615 /* ISSAppDelegate.m in Sources */,
 				C905BD6D172309B4005FD615 /* ISSFirstViewController.m in Sources */,
 				C905BD74172309B4005FD615 /* ISSSecondViewController.m in Sources */,
+				C905BD9C17230BE6005FD615 /* ISSARView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
