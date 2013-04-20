@@ -7,12 +7,23 @@
 //
 
 #import "ISSAppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
+#import "ISSHeavensAboveClient.h"
+
+
+@interface ISSAppDelegate () <CLLocationManagerDelegate>
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) ISSHeavensAboveClient *heavensAboveClient;
+@end
 
 @implementation ISSAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.heavensAboveClient = [ISSHeavensAboveClient new];
+    self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 100.0;
+    [self.locationManager startUpdatingLocation];
     return YES;
 }
 							
@@ -41,6 +52,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.heavensAboveClient gitISSPassesForLocation:[locations lastObject]
+                                             success:^(AFHTTPRequestOperation *operation, NSArray *passes) {
+                                                 NSLog(@"passes: %@", passes);
+                                             }
+                                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                 NSLog(@"oops!: %@", error);
+                                             }];
 }
 
 @end
