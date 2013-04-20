@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <CoreMotion/CoreMotion.h>
 
 @interface ISSARView : UIView <CLLocationManagerDelegate>
-
+@property (strong, nonatomic) CLLocation *currentLocation;
 @end

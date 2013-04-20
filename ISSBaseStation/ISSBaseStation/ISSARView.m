@@ -7,12 +7,14 @@
 //
 
 #import "ISSARView.h"
+#import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface ISSARView ()
 @property (strong, nonatomic) UIView *captureView;
 @property (strong, nonatomic) AVCaptureSession *captureSession;
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *captureLayer;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @end
 
 
@@ -42,6 +44,7 @@
     [self addSubview:_captureView];
     [self sendSubviewToBack:_captureView];
     [self startCamera];
+    [self startLocation];
 }
 
 /*
@@ -82,5 +85,28 @@
 	self.captureSession = nil;
 	self.captureLayer = nil;
 }
+
+
+- (void)startLocation {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 100.0;
+    [self.locationManager startUpdatingLocation];
+}
+
+
+- (void)stopLocation {
+    [self.locationManager stopUpdatingLocation];
+}
+
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations{
+    self.currentLocation = [locations lastObject];
+    NSLog(@"self.currentLocation: %@", self.currentLocation);
+    NSLog(@"self.currentLocation.coordinate: %f %f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
+}
+
 
 @end
