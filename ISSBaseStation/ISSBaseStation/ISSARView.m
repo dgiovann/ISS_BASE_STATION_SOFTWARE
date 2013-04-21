@@ -90,10 +90,6 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     // Initialize projection matrix
 	createProjectionMatrix(_projectionTransform, 60.0f*DEGREES_TO_RADIANS, self.bounds.size.height*1.0f / self.bounds.size.width, 0.25f, 1000.0f);
     
-    [self startCamera];
-    [self startLocation];
-    [self startMotion];
-    [self startDisplay];
     [self updateISSLocation];
 }
 
@@ -116,6 +112,25 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     }
 }
 
+
+#pragma mark - Instance Methods
+- (void)startSensors {
+    [self startCamera];
+    [self startLocation];
+    [self startMotion];
+    [self startDisplay];
+}
+
+
+- (void)stopSensors {
+    [self stopCamera];
+    [self stopLocation];
+    [self stopMotion];
+    [self stopDisplay];
+}
+
+
+#pragma mark - Private Instance Methods
 
 - (void)startCamera {
     AVCaptureDevice *camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

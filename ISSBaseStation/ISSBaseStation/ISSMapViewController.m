@@ -1,19 +1,19 @@
 //
-//  ISSSecondViewController.m
+//  ISSMapViewController.m
 //  ISSBaseStation
 //
 //  Created by Matthew Thomas on 4/20/13.
 //  Copyright (c) 2013 Matthew Thomas. All rights reserved.
 //
 
-#import "ISSSecondViewController.h"
+#import "ISSMapViewController.h"
 
-@interface ISSSecondViewController ()
+@interface ISSMapViewController ()
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @end
 
-@implementation ISSSecondViewController
+@implementation ISSMapViewController
 
 - (void)viewDidLoad
 {

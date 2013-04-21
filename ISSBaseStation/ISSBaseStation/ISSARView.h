@@ -12,4 +12,6 @@
 @interface ISSARView : UIView <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) CLLocation *issLocation;
+- (void)startSensors;
+- (void)stopSensors;
 @end
