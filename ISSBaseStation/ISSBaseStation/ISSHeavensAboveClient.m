@@ -32,7 +32,8 @@ static NSString *const ISSHeavensAboveClientBaseURL = @"http://api.uhaapi.com/";
                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     [self getPath:@"satellites/25544/passes"
-       parameters:@{@"lat": @(location.coordinate.latitude), @"lng": @(location.coordinate.latitude)}
+       parameters:@{ISSStationInfoLatitudeKey: @(location.coordinate.latitude),
+                    ISSStationInfoLongitudeKey: @(location.coordinate.longitude)}
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSError *creationError;
               ISSStationInfo *stationInfo = [MTLJSONAdapter modelOfClass:ISSStationInfo.class

@@ -9,6 +9,9 @@
 #import "ISSStationInfo.h"
 #import "ISSPass.h"
 
+NSString *const ISSStationInfoLatitudeKey = @"lat";
+NSString *const ISSStationInfoLongitudeKey = @"lng";
+
 @implementation ISSStationInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -24,7 +27,6 @@
 
 
 + (NSValueTransformer *)infoStartDateJSONTransformer {
-    NSLog(@"now: %@", [NSDate date]);
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *seconds) {
         return [NSDate dateWithTimeIntervalSince1970:seconds.doubleValue];
     } reverseBlock:^(NSDate *date) {
@@ -38,6 +40,17 @@
         return [NSDate dateWithTimeIntervalSince1970:seconds.doubleValue];
     } reverseBlock:^(NSDate *date) {
         return [NSNumber numberWithDouble:date.timeIntervalSince1970];
+    }];
+}
+
+
++ (NSValueTransformer *)locationJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSDictionary *locationJSON) {
+        return [[CLLocation alloc] initWithLatitude:[[locationJSON objectForKey:ISSStationInfoLatitudeKey] doubleValue]
+                                          longitude:[[locationJSON objectForKey:ISSStationInfoLongitudeKey] doubleValue]];
+    } reverseBlock:^(CLLocation *location) {
+        return @{ISSStationInfoLatitudeKey: @(location.coordinate.latitude),
+                 ISSStationInfoLongitudeKey: @(location.coordinate.longitude)};
     }];
 }
 
