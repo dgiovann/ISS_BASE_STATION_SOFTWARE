@@ -8,7 +8,6 @@
 
 #import <Mantle/Mantle.h>
 #import <CoreLocation/CoreLocation.h>
-#import "ISSBasicLocation.h"
 
 OBJC_EXPORT NSString *const ISSStationInfoLatitudeKey;
 OBJC_EXPORT NSString *const ISSStationInfoLongitudeKey;

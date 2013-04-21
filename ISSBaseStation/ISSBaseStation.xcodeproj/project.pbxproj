@@ -37,7 +37,6 @@
 		C905BDA017230DBC005FD615 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9F17230DBC005FD615 /* QuartzCore.framework */; };
 		C959F74517235140003A4F83 /* ISSHeavensAboveClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */; };
 		C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F7471723588B003A4F83 /* ISSStationInfo.m */; };
-		C959F74B17235A97003A4F83 /* ISSBasicLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74A17235A97003A4F83 /* ISSBasicLocation.m */; };
 		C959F74E17238217003A4F83 /* ISSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74D17238217003A4F83 /* ISSPosition.m */; };
 		C959F751172382FA003A4F83 /* ISSPass.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F750172382F9003A4F83 /* ISSPass.m */; };
 /* End PBXBuildFile section */
@@ -93,8 +92,6 @@
 		C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSHeavensAboveClient.m; sourceTree = "<group>"; };
 		C959F7461723588B003A4F83 /* ISSStationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSStationInfo.h; sourceTree = "<group>"; };
 		C959F7471723588B003A4F83 /* ISSStationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSStationInfo.m; sourceTree = "<group>"; };
-		C959F74917235A97003A4F83 /* ISSBasicLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSBasicLocation.h; sourceTree = "<group>"; };
-		C959F74A17235A97003A4F83 /* ISSBasicLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSBasicLocation.m; sourceTree = "<group>"; };
 		C959F74C17238217003A4F83 /* ISSPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPosition.h; sourceTree = "<group>"; };
 		C959F74D17238217003A4F83 /* ISSPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPosition.m; sourceTree = "<group>"; };
 		C959F74F172382F9003A4F83 /* ISSPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPass.h; sourceTree = "<group>"; };
@@ -172,7 +169,6 @@
 			children = (
 				C905BD5C172309B4005FD615 /* ISSAppDelegate.h */,
 				C905BD9A17230BE6005FD615 /* ISSARView.h */,
-				C959F74917235A97003A4F83 /* ISSBasicLocation.h */,
 				C905BD6B172309B4005FD615 /* ISSFirstViewController.h */,
 				C959F74317235140003A4F83 /* ISSHeavensAboveClient.h */,
 				C959F74F172382F9003A4F83 /* ISSPass.h */,
@@ -181,7 +177,6 @@
 				C959F7461723588B003A4F83 /* ISSStationInfo.h */,
 				C905BD5D172309B4005FD615 /* ISSAppDelegate.m */,
 				C905BD9B17230BE6005FD615 /* ISSARView.m */,
-				C959F74A17235A97003A4F83 /* ISSBasicLocation.m */,
 				C905BD6C172309B4005FD615 /* ISSFirstViewController.m */,
 				C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */,
 				C959F750172382F9003A4F83 /* ISSPass.m */,
@@ -385,7 +380,6 @@
 				C905BD9C17230BE6005FD615 /* ISSARView.m in Sources */,
 				C959F74517235140003A4F83 /* ISSHeavensAboveClient.m in Sources */,
 				C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */,
-				C959F74B17235A97003A4F83 /* ISSBasicLocation.m in Sources */,
 				C959F74E17238217003A4F83 /* ISSPosition.m in Sources */,
 				C959F751172382FA003A4F83 /* ISSPass.m in Sources */,
 			);
