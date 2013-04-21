@@ -10,6 +10,10 @@
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
 
+#define SCREEN_OFFSET_DEGREES 22.5f
+
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+
 #define DEGREES_TO_RADIANS (M_PI/180.0)
 #define WGS84_A	(6378137.0)				// WGS 84 semi-major axis constant in meters
 #define WGS84_E (8.1819190842622e-2)	// WGS 84 eccentricity
@@ -42,7 +46,14 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *captureLayer;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) CMAttitude *referenceAttitude;
 @property (strong, nonatomic) UIView *issView;
+@property (assign, nonatomic) CGFloat azimuth;
+@property (assign, nonatomic) CGFloat minAzimuth;
+@property (assign, nonatomic) CGFloat maxAzimuth;
+@property (assign, nonatomic) CGFloat altitude;
+@property (assign, nonatomic) CGFloat minAltitude;
+@property (assign, nonatomic) CGFloat maxAltitude;
 @end
 
 
@@ -198,9 +209,23 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 
 
 - (void)updateDisplay:(id)sender {
-    CMDeviceMotion *d = self.motionManager.deviceMotion;
-	if (d != nil) {
-		CMRotationMatrix r = d.attitude.rotationMatrix;
+    CMDeviceMotion *deviceMotion = self.motionManager.deviceMotion;
+    CMAttitude *attitude = deviceMotion.attitude;
+    // This is for up and down
+    self.altitude = RADIANS_TO_DEGREES(attitude.roll) - 90.0f;
+    self.maxAltitude = self.altitude + SCREEN_OFFSET_DEGREES;
+    self.minAltitude = self.altitude + SCREEN_OFFSET_DEGREES;
+    
+    // This is for left-right
+    CGFloat azimuth = -RADIANS_TO_DEGREES(attitude.yaw);
+    self.azimuth = (azimuth >= 0.0f) ? azimuth : 360.0f + azimuth;
+    CGFloat minAzimuth = self.azimuth - SCREEN_OFFSET_DEGREES;
+    self.minAzimuth = (minAzimuth < 0.0f) ? minAzimuth + 360.0f : minAzimuth;
+    CGFloat maxAzimuth = self.azimuth + SCREEN_OFFSET_DEGREES;
+    self.maxAzimuth = (maxAzimuth > 360.0f) ? maxAzimuth - 360.0f : maxAzimuth;
+    
+	if (deviceMotion != nil) {
+		CMRotationMatrix r = deviceMotion.attitude.rotationMatrix;
 		transformFromRotationMatrix(_cameraTransform, &r);
 		[self setNeedsDisplay];
 	}
