@@ -16,7 +16,7 @@
 @implementation ISSARViewController
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscapeLeft;
+    return UIInterfaceOrientationMaskLandscapeRight;
 }
 
 
