@@ -87,6 +87,7 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 }
 
 - (void)commonInit {
+    self.backgroundColor = [UIColor greenColor];
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateDisplay:)];
     _locationManager = [[CLLocationManager alloc] init];
     _motionManager = [[CMMotionManager alloc] init];
@@ -100,8 +101,8 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     [self addSubview:_maxPassView];
     
     _captureView = [[UIView alloc] initWithFrame:self.bounds];
-    _captureView.bounds = self.bounds;
     _captureView.backgroundColor = [UIColor orangeColor];
+    _captureView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [self addSubview:_captureView];
     [self sendSubviewToBack:_captureView];
     

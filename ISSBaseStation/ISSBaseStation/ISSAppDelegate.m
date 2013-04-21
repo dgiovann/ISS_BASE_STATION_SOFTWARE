@@ -26,9 +26,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]) {
-        UIViewController *firstViewController = [((UITabBarController *)self.window.rootViewController).viewControllers mtl_firstObject];
-        if ([firstViewController isKindOfClass:[ISSARViewController class]]) {
-            self.arViewController = (ISSARViewController *)firstViewController;
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        UIViewController *firstViewController = [tabBarController.viewControllers lastObject];
+        if ([firstViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navController = (UINavigationController *)firstViewController;
+            UIViewController *rootViewController = [navController.viewControllers mtl_firstObject];
+            if ([rootViewController isKindOfClass:[ISSARViewController class]]) {
+                self.arViewController = (ISSARViewController *)rootViewController;
+            }
         }
     } else {
         NSLog(@"self.window.rootViewController: %@", self.window.rootViewController);

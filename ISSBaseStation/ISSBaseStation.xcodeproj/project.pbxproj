@@ -35,6 +35,12 @@
 		C905BD9C17230BE6005FD615 /* ISSARView.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD9B17230BE6005FD615 /* ISSARView.m */; };
 		C905BD9E17230C44005FD615 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9D17230C44005FD615 /* AVFoundation.framework */; };
 		C905BDA017230DBC005FD615 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD9F17230DBC005FD615 /* QuartzCore.framework */; };
+		C9283B6F1724454900B6151F /* ARTabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B691724454900B6151F /* ARTabBar.png */; };
+		C9283B701724454900B6151F /* ARTabBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6A1724454900B6151F /* ARTabBar@2x.png */; };
+		C9283B711724454900B6151F /* ISSTabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6B1724454900B6151F /* ISSTabBar.png */; };
+		C9283B721724454900B6151F /* ISSTabBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6C1724454900B6151F /* ISSTabBar@2x.png */; };
+		C9283B731724454900B6151F /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6D1724454900B6151F /* Logo.png */; };
+		C9283B741724454900B6151F /* Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6E1724454900B6151F /* Logo@2x.png */; };
 		C959F74517235140003A4F83 /* ISSHeavensAboveClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */; };
 		C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F7471723588B003A4F83 /* ISSStationInfo.m */; };
 		C959F74E17238217003A4F83 /* ISSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74D17238217003A4F83 /* ISSPosition.m */; };
@@ -92,6 +98,12 @@
 		C905BD9B17230BE6005FD615 /* ISSARView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSARView.m; sourceTree = "<group>"; };
 		C905BD9D17230C44005FD615 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C905BD9F17230DBC005FD615 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C9283B691724454900B6151F /* ARTabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ARTabBar.png; sourceTree = "<group>"; };
+		C9283B6A1724454900B6151F /* ARTabBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARTabBar@2x.png"; sourceTree = "<group>"; };
+		C9283B6B1724454900B6151F /* ISSTabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ISSTabBar.png; sourceTree = "<group>"; };
+		C9283B6C1724454900B6151F /* ISSTabBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ISSTabBar@2x.png"; sourceTree = "<group>"; };
+		C9283B6D1724454900B6151F /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		C9283B6E1724454900B6151F /* Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@2x.png"; sourceTree = "<group>"; };
 		C959F74317235140003A4F83 /* ISSHeavensAboveClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSHeavensAboveClient.h; sourceTree = "<group>"; };
 		C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSHeavensAboveClient.m; sourceTree = "<group>"; };
 		C959F7461723588B003A4F83 /* ISSStationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSStationInfo.h; sourceTree = "<group>"; };
@@ -139,6 +151,7 @@
 		C905BD41172309B4005FD615 = {
 			isa = PBXGroup;
 			children = (
+				C9283B681724454900B6151F /* Resources */,
 				C97F517E1724292F00C5ECF0 /* iPadAppIcon@2x.png */,
 				C97F517C1724292A00C5ECF0 /* iPadAppIcon.png */,
 				C97F517A1724292300C5ECF0 /* iPhoneAppIcon@2x.png */,
@@ -239,6 +252,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9283B681724454900B6151F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C9283B691724454900B6151F /* ARTabBar.png */,
+				C9283B6A1724454900B6151F /* ARTabBar@2x.png */,
+				C9283B6B1724454900B6151F /* ISSTabBar.png */,
+				C9283B6C1724454900B6151F /* ISSTabBar@2x.png */,
+				C9283B6D1724454900B6151F /* Logo.png */,
+				C9283B6E1724454900B6151F /* Logo@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +353,12 @@
 				C97F517B1724292300C5ECF0 /* iPhoneAppIcon@2x.png in Resources */,
 				C97F517D1724292A00C5ECF0 /* iPadAppIcon.png in Resources */,
 				C97F517F1724292F00C5ECF0 /* iPadAppIcon@2x.png in Resources */,
+				C9283B6F1724454900B6151F /* ARTabBar.png in Resources */,
+				C9283B701724454900B6151F /* ARTabBar@2x.png in Resources */,
+				C9283B711724454900B6151F /* ISSTabBar.png in Resources */,
+				C9283B721724454900B6151F /* ISSTabBar@2x.png in Resources */,
+				C9283B731724454900B6151F /* Logo.png in Resources */,
+				C9283B741724454900B6151F /* Logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
