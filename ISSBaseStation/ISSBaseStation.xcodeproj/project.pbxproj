@@ -41,6 +41,8 @@
 		C9283B721724454900B6151F /* ISSTabBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6C1724454900B6151F /* ISSTabBar@2x.png */; };
 		C9283B731724454900B6151F /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6D1724454900B6151F /* Logo.png */; };
 		C9283B741724454900B6151F /* Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9283B6E1724454900B6151F /* Logo@2x.png */; };
+		C9283B761724575F00B6151F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9283B751724575F00B6151F /* Social.framework */; };
+		C9283B791724581300B6151F /* ISSPointerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9283B781724581300B6151F /* ISSPointerClient.m */; };
 		C959F74517235140003A4F83 /* ISSHeavensAboveClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */; };
 		C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F7471723588B003A4F83 /* ISSStationInfo.m */; };
 		C959F74E17238217003A4F83 /* ISSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74D17238217003A4F83 /* ISSPosition.m */; };
@@ -104,6 +106,9 @@
 		C9283B6C1724454900B6151F /* ISSTabBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ISSTabBar@2x.png"; sourceTree = "<group>"; };
 		C9283B6D1724454900B6151F /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		C9283B6E1724454900B6151F /* Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@2x.png"; sourceTree = "<group>"; };
+		C9283B751724575F00B6151F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		C9283B771724581300B6151F /* ISSPointerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPointerClient.h; sourceTree = "<group>"; };
+		C9283B781724581300B6151F /* ISSPointerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPointerClient.m; sourceTree = "<group>"; };
 		C959F74317235140003A4F83 /* ISSHeavensAboveClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSHeavensAboveClient.h; sourceTree = "<group>"; };
 		C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSHeavensAboveClient.m; sourceTree = "<group>"; };
 		C959F7461723588B003A4F83 /* ISSStationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSStationInfo.h; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9283B761724575F00B6151F /* Social.framework in Frameworks */,
 				C905BDA017230DBC005FD615 /* QuartzCore.framework in Frameworks */,
 				C905BD9E17230C44005FD615 /* AVFoundation.framework in Frameworks */,
 				C905BD9917230A5C005FD615 /* CoreLocation.framework in Frameworks */,
@@ -156,6 +162,7 @@
 				C97F517C1724292A00C5ECF0 /* iPadAppIcon.png */,
 				C97F517A1724292300C5ECF0 /* iPhoneAppIcon@2x.png */,
 				C97F51781724291E00C5ECF0 /* iPhoneAppIcon.png */,
+				C9283B751724575F00B6151F /* Social.framework */,
 				C905BD9F17230DBC005FD615 /* QuartzCore.framework */,
 				C905BD9D17230C44005FD615 /* AVFoundation.framework */,
 				C905BD9817230A5B005FD615 /* CoreLocation.framework */,
@@ -215,6 +222,8 @@
 				C905BD68172309B4005FD615 /* MainStoryboard_iPad.storyboard */,
 				C905BD65172309B4005FD615 /* MainStoryboard_iPhone.storyboard */,
 				C905BD54172309B4005FD615 /* Supporting Files */,
+				C9283B771724581300B6151F /* ISSPointerClient.h */,
+				C9283B781724581300B6151F /* ISSPointerClient.m */,
 			);
 			path = ISSBaseStation;
 			sourceTree = "<group>";
@@ -430,6 +439,7 @@
 				C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */,
 				C959F74E17238217003A4F83 /* ISSPosition.m in Sources */,
 				C959F751172382FA003A4F83 /* ISSPass.m in Sources */,
+				C9283B791724581300B6151F /* ISSPointerClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,7 +33,11 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
                     <navigationItem key="navigationItem" id="OHL-Ci-G63">
                         <barButtonItem key="leftBarButtonItem" image="Logo.png" id="Ve9-1F-Jzc"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="camera" id="Zky-26-sHe"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="camera" id="Zky-26-sHe">
+                            <connections>
+                                <action selector="cameraPressed:" destination="2" id="FgM-63-wa2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="arView" destination="16" id="WlC-p2-hdq"/>
@@ -109,23 +113,6 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="ISSARView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ISSARView.h"/>
-        </class>
-        <class className="ISSARViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ISSARViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="arView" candidateClass="ISSARView"/>
-            </relationships>
-        </class>
-        <class className="ISSMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ISSMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

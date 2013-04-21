@@ -48,7 +48,6 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *captureLayer;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CMMotionManager *motionManager;
-@property (strong, nonatomic) CMAttitude *referenceAttitude;
 @property (strong, nonatomic) UIView *issView;
 @property (strong, nonatomic) UIView *maxPassView;
 @property (assign, nonatomic) CGFloat rotAzimuth;
@@ -96,7 +95,7 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     _issView.backgroundColor = [UIColor greenColor];
     [self addSubview:_issView];
     
-    _maxPassView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
+    _maxPassView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ISSTabBar"]];
     _maxPassView.backgroundColor = [UIColor purpleColor];
     [self addSubview:_maxPassView];
     

@@ -7,17 +7,11 @@
 //
 
 #import "ISSAppDelegate.h"
-#import <CoreLocation/CoreLocation.h>
-#import "ISSHeavensAboveClient.h"
-#import "ISSStationInfo.h"
-#import "ISSPass.h"
-#import "ISSPosition.h"
 #import "ISSARViewController.h"
+#import <Mantle/Mantle.h>
 
 
-@interface ISSAppDelegate () <CLLocationManagerDelegate>
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) ISSHeavensAboveClient *heavensAboveClient;
+@interface ISSAppDelegate ()
 @property (strong, nonatomic) ISSARViewController *arViewController;
 @end
 
@@ -38,12 +32,6 @@
     } else {
         NSLog(@"self.window.rootViewController: %@", self.window.rootViewController);
     }
-    
-    self.heavensAboveClient = [ISSHeavensAboveClient new];
-    self.locationManager = [CLLocationManager new];
-    self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = 100.0;
-    [self.locationManager startUpdatingLocation];
     return YES;
 }
 							
@@ -74,16 +62,5 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    [self.heavensAboveClient gitISSPassesForLocation:[locations lastObject]
-                                             success:^(AFHTTPRequestOperation *operation, ISSStationInfo *stationInfo) {
-                                                 NSLog(@"stationInfo: %@", stationInfo);
-                                                 self.arViewController.nextPass = [stationInfo.passes mtl_firstObject];
-                                             }
-                                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                 NSLog(@"oops!: %@", error);
-                                             }];
-}
 
 @end
