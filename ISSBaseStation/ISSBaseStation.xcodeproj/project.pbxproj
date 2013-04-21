@@ -39,6 +39,10 @@
 		C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F7471723588B003A4F83 /* ISSStationInfo.m */; };
 		C959F74E17238217003A4F83 /* ISSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F74D17238217003A4F83 /* ISSPosition.m */; };
 		C959F751172382FA003A4F83 /* ISSPass.m in Sources */ = {isa = PBXBuildFile; fileRef = C959F750172382F9003A4F83 /* ISSPass.m */; };
+		C97F51791724291E00C5ECF0 /* iPhoneAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F51781724291E00C5ECF0 /* iPhoneAppIcon.png */; };
+		C97F517B1724292300C5ECF0 /* iPhoneAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F517A1724292300C5ECF0 /* iPhoneAppIcon@2x.png */; };
+		C97F517D1724292A00C5ECF0 /* iPadAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F517C1724292A00C5ECF0 /* iPadAppIcon.png */; };
+		C97F517F1724292F00C5ECF0 /* iPadAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F517E1724292F00C5ECF0 /* iPadAppIcon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +100,10 @@
 		C959F74D17238217003A4F83 /* ISSPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPosition.m; sourceTree = "<group>"; };
 		C959F74F172382F9003A4F83 /* ISSPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPass.h; sourceTree = "<group>"; };
 		C959F750172382F9003A4F83 /* ISSPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPass.m; sourceTree = "<group>"; };
+		C97F51781724291E00C5ECF0 /* iPhoneAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneAppIcon.png; sourceTree = "<group>"; };
+		C97F517A1724292300C5ECF0 /* iPhoneAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneAppIcon@2x.png"; sourceTree = "<group>"; };
+		C97F517C1724292A00C5ECF0 /* iPadAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadAppIcon.png; sourceTree = "<group>"; };
+		C97F517E1724292F00C5ECF0 /* iPadAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadAppIcon@2x.png"; sourceTree = "<group>"; };
 		DD66C8847B5A4A988C40DED1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +139,10 @@
 		C905BD41172309B4005FD615 = {
 			isa = PBXGroup;
 			children = (
+				C97F517E1724292F00C5ECF0 /* iPadAppIcon@2x.png */,
+				C97F517C1724292A00C5ECF0 /* iPadAppIcon.png */,
+				C97F517A1724292300C5ECF0 /* iPhoneAppIcon@2x.png */,
+				C97F51781724291E00C5ECF0 /* iPhoneAppIcon.png */,
 				C905BD9F17230DBC005FD615 /* QuartzCore.framework */,
 				C905BD9D17230C44005FD615 /* AVFoundation.framework */,
 				C905BD9817230A5B005FD615 /* CoreLocation.framework */,
@@ -311,6 +323,10 @@
 				C905BD71172309B4005FD615 /* first@2x.png in Resources */,
 				C905BD76172309B4005FD615 /* second.png in Resources */,
 				C905BD78172309B4005FD615 /* second@2x.png in Resources */,
+				C97F51791724291E00C5ECF0 /* iPhoneAppIcon.png in Resources */,
+				C97F517B1724292300C5ECF0 /* iPhoneAppIcon@2x.png in Resources */,
+				C97F517D1724292A00C5ECF0 /* iPadAppIcon.png in Resources */,
+				C97F517F1724292F00C5ECF0 /* iPadAppIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
