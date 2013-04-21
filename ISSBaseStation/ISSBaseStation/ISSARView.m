@@ -26,6 +26,7 @@ void multiplyMatrixAndMatrix(mat4f_t c, const mat4f_t a, const mat4f_t b);
 void transformFromRotationMatrix(vec4f_t mout, const CMRotationMatrix *m);
 void latLonToEcef(double lat, double lon, double alt, double *x, double *y, double *z);
 void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, double yr, double zr, double *e, double *n, double *u);
+float azimuthToScreen(float azimuth);
 
 
 #pragma mark -
@@ -50,6 +51,9 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 @property (strong, nonatomic) CMAttitude *referenceAttitude;
 @property (strong, nonatomic) UIView *issView;
 @property (strong, nonatomic) UIView *maxPassView;
+@property (assign, nonatomic) CGFloat rotAzimuth;
+@property (assign, nonatomic) CGFloat minRotAzimuth;
+@property (assign, nonatomic) CGFloat maxRotAzimuth;
 @property (assign, nonatomic) CGFloat azimuth;
 @property (assign, nonatomic) CGFloat minAzimuth;
 @property (assign, nonatomic) CGFloat maxAzimuth;
@@ -135,17 +139,25 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     if (!_maxPassView.hidden) {
         // convert from pass azimuth to screen coordinates)
         CGFloat passAsimuth = [self.nextPass.maxPosition.azimuth floatValue];
-        NSLog(@"passAzimuth: %f", passAsimuth);
-        NSLog(@"self.azimuth: %f", self.azimuth);
-        NSLog(@"self.maxAzimuth: %f", self.maxAzimuth);
-        NSLog(@"self.minAzimuth: %f", self.minAzimuth);
+        CGFloat passAltitude = [self.nextPass.maxPosition.altitude floatValue];
+        
         CGFloat xPixelPerDegree = self.bounds.size.width / 180.0f;
         CGFloat yPixelPerDegree = self.bounds.size.height / 180.0f;
-        CGFloat xPos = (passAsimuth - self.minAzimuth) * xPixelPerDegree;
+        
+        CGFloat minScreenAz = azimuthToScreen(self.minAzimuth);
+        CGFloat passScreenAz = azimuthToScreen(passAsimuth);
+        
+        CGFloat xPos = (passScreenAz - minScreenAz) * xPixelPerDegree;
+
+//        CGFloat yOffset = (passAltitude - self.minAltitude);
+//        CGFloat yPos = (self.bounds.size.height - yOffset) * yPixelPerDegree;
+//        NSLog(@"passAltitude: %f", passAltitude);
+//        NSLog(@"minAltitude: %f", self.minAltitude);
+//        NSLog(@"yOffset: %f", yOffset);
+//        NSLog(@"yPos: %f", yPos);
+//        NSLog(@"self.altitude: %f", self.altitude);
+//                _maxPassView.center = CGPointMake(xPos, yPos);
         _maxPassView.center = CGPointMake(xPos, self.bounds.size.height / 2.0f);
-//        if (passAsimuth < self.maxAzimuth) {
-//            <#statements#>
-//        }
     }
 }
 
@@ -238,9 +250,9 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     CMDeviceMotion *deviceMotion = self.motionManager.deviceMotion;
     CMAttitude *attitude = deviceMotion.attitude;
     // This is for up and down
-    self.altitude = RADIANS_TO_DEGREES(attitude.roll) - 90.0f;
+    self.altitude = (-RADIANS_TO_DEGREES(attitude.roll)) - 90.0f;
     self.maxAltitude = self.altitude + SCREEN_OFFSET_DEGREES;
-    self.minAltitude = self.altitude + SCREEN_OFFSET_DEGREES;
+    self.minAltitude = self.altitude - SCREEN_OFFSET_DEGREES;
     
     // This is for left-right
     CGFloat azimuth = -RADIANS_TO_DEGREES(attitude.yaw);
@@ -407,3 +419,10 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 	*n = -slat*clon*dx - slat*slon*dy + clat*dz;
 	*u = clat*clon*dx + clat*slon*dy + slat*dz;
 }
+
+
+float azimuthToScreen(float azimuth) {
+    return (azimuth > 180.0f) ? azimuth - 360.0f : azimuth;
+}
+
+
