@@ -9,6 +9,9 @@
 #import "ISSAppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 #import "ISSHeavensAboveClient.h"
+#import "ISSStationInfo.h"
+#import "ISSPass.h"
+#import "ISSPosition.h"
 
 
 @interface ISSAppDelegate () <CLLocationManagerDelegate>
@@ -57,8 +60,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     [self.heavensAboveClient gitISSPassesForLocation:[locations lastObject]
-                                             success:^(AFHTTPRequestOperation *operation, NSArray *passes) {
-                                                 NSLog(@"passes: %@", passes);
+                                             success:^(AFHTTPRequestOperation *operation, ISSStationInfo *stationInfo) {
+                                                 NSLog(@"stationInfo: %@", stationInfo);
+                                                 for (ISSPass *pass in stationInfo.passes) {
+                                                     NSLog(@"pass: %@", pass.maxPosition);
+                                                 }
                                              }
                                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                  NSLog(@"oops!: %@", error);
