@@ -19,10 +19,10 @@
 		C905BD64172309B4005FD615 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C905BD63172309B4005FD615 /* Default-568h@2x.png */; };
 		C905BD67172309B4005FD615 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C905BD65172309B4005FD615 /* MainStoryboard_iPhone.storyboard */; };
 		C905BD6A172309B4005FD615 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C905BD68172309B4005FD615 /* MainStoryboard_iPad.storyboard */; };
-		C905BD6D172309B4005FD615 /* ISSFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD6C172309B4005FD615 /* ISSFirstViewController.m */; };
+		C905BD6D172309B4005FD615 /* ISSARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD6C172309B4005FD615 /* ISSARViewController.m */; };
 		C905BD6F172309B4005FD615 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = C905BD6E172309B4005FD615 /* first.png */; };
 		C905BD71172309B4005FD615 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C905BD70172309B4005FD615 /* first@2x.png */; };
-		C905BD74172309B4005FD615 /* ISSSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD73172309B4005FD615 /* ISSSecondViewController.m */; };
+		C905BD74172309B4005FD615 /* ISSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905BD73172309B4005FD615 /* ISSMapViewController.m */; };
 		C905BD76172309B4005FD615 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = C905BD75172309B4005FD615 /* second.png */; };
 		C905BD78172309B4005FD615 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C905BD77172309B4005FD615 /* second@2x.png */; };
 		C905BD80172309B4005FD615 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905BD7F172309B4005FD615 /* SenTestingKit.framework */; };
@@ -68,12 +68,12 @@
 		C905BD63172309B4005FD615 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C905BD66172309B4005FD615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		C905BD69172309B4005FD615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		C905BD6B172309B4005FD615 /* ISSFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSFirstViewController.h; sourceTree = "<group>"; };
-		C905BD6C172309B4005FD615 /* ISSFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSFirstViewController.m; sourceTree = "<group>"; };
+		C905BD6B172309B4005FD615 /* ISSARViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSARViewController.h; sourceTree = "<group>"; };
+		C905BD6C172309B4005FD615 /* ISSARViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSARViewController.m; sourceTree = "<group>"; };
 		C905BD6E172309B4005FD615 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		C905BD70172309B4005FD615 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		C905BD72172309B4005FD615 /* ISSSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSSecondViewController.h; sourceTree = "<group>"; };
-		C905BD73172309B4005FD615 /* ISSSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSSecondViewController.m; sourceTree = "<group>"; };
+		C905BD72172309B4005FD615 /* ISSMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSMapViewController.h; sourceTree = "<group>"; };
+		C905BD73172309B4005FD615 /* ISSMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSMapViewController.m; sourceTree = "<group>"; };
 		C905BD75172309B4005FD615 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		C905BD77172309B4005FD615 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		C905BD7E172309B4005FD615 /* ISSBaseStationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ISSBaseStationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,19 +169,19 @@
 			children = (
 				C905BD5C172309B4005FD615 /* ISSAppDelegate.h */,
 				C905BD9A17230BE6005FD615 /* ISSARView.h */,
-				C905BD6B172309B4005FD615 /* ISSFirstViewController.h */,
+				C905BD6B172309B4005FD615 /* ISSARViewController.h */,
 				C959F74317235140003A4F83 /* ISSHeavensAboveClient.h */,
+				C905BD72172309B4005FD615 /* ISSMapViewController.h */,
 				C959F74F172382F9003A4F83 /* ISSPass.h */,
 				C959F74C17238217003A4F83 /* ISSPosition.h */,
-				C905BD72172309B4005FD615 /* ISSSecondViewController.h */,
 				C959F7461723588B003A4F83 /* ISSStationInfo.h */,
 				C905BD5D172309B4005FD615 /* ISSAppDelegate.m */,
 				C905BD9B17230BE6005FD615 /* ISSARView.m */,
-				C905BD6C172309B4005FD615 /* ISSFirstViewController.m */,
+				C905BD6C172309B4005FD615 /* ISSARViewController.m */,
 				C959F74417235140003A4F83 /* ISSHeavensAboveClient.m */,
+				C905BD73172309B4005FD615 /* ISSMapViewController.m */,
 				C959F750172382F9003A4F83 /* ISSPass.m */,
 				C959F74D17238217003A4F83 /* ISSPosition.m */,
-				C905BD73172309B4005FD615 /* ISSSecondViewController.m */,
 				C959F7471723588B003A4F83 /* ISSStationInfo.m */,
 				C905BD6E172309B4005FD615 /* first.png */,
 				C905BD70172309B4005FD615 /* first@2x.png */,
@@ -375,8 +375,8 @@
 			files = (
 				C905BD5A172309B4005FD615 /* main.m in Sources */,
 				C905BD5E172309B4005FD615 /* ISSAppDelegate.m in Sources */,
-				C905BD6D172309B4005FD615 /* ISSFirstViewController.m in Sources */,
-				C905BD74172309B4005FD615 /* ISSSecondViewController.m in Sources */,
+				C905BD6D172309B4005FD615 /* ISSARViewController.m in Sources */,
+				C905BD74172309B4005FD615 /* ISSMapViewController.m in Sources */,
 				C905BD9C17230BE6005FD615 /* ISSARView.m in Sources */,
 				C959F74517235140003A4F83 /* ISSHeavensAboveClient.m in Sources */,
 				C959F7481723588B003A4F83 /* ISSStationInfo.m in Sources */,

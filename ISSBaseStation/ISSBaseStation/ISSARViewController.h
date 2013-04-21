@@ -1,5 +1,5 @@
 //
-//  ISSSecondViewController.h
+//  ISSARViewController.h
 //  ISSBaseStation
 //
 //  Created by Matthew Thomas on 4/20/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISSSecondViewController : UIViewController
+@interface ISSARViewController : UIViewController
 
 @end

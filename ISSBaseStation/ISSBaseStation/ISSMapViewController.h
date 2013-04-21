@@ -1,5 +1,5 @@
 //
-//  ISSFirstViewController.h
+//  ISSMapViewController.h
 //  ISSBaseStation
 //
 //  Created by Matthew Thomas on 4/20/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISSFirstViewController : UIViewController
+@interface ISSMapViewController : UIViewController
 
 @end
