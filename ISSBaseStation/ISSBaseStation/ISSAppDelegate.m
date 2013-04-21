@@ -62,9 +62,6 @@
     [self.heavensAboveClient gitISSPassesForLocation:[locations lastObject]
                                              success:^(AFHTTPRequestOperation *operation, ISSStationInfo *stationInfo) {
                                                  NSLog(@"stationInfo: %@", stationInfo);
-                                                 for (ISSPass *pass in stationInfo.passes) {
-                                                     NSLog(@"pass: %@", pass.maxPosition);
-                                                 }
                                              }
                                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                  NSLog(@"oops!: %@", error);

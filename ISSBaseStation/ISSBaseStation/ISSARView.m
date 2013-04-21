@@ -224,8 +224,6 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
      didUpdateLocations:(NSArray *)locations{
     self.currentLocation = [locations lastObject];
     [self updateISSLocation];
-    NSLog(@"self.currentLocation: %@", self.currentLocation);
-    NSLog(@"self.currentLocation.coordinate: %f %f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
 }
 
 
