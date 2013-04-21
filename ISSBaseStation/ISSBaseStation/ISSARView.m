@@ -132,6 +132,21 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     [super layoutSubviews];
     _issView.hidden = YES;
     _maxPassView.hidden = !self.nextPass;
+    if (!_maxPassView.hidden) {
+        // convert from pass azimuth to screen coordinates)
+        CGFloat passAsimuth = [self.nextPass.maxPosition.azimuth floatValue];
+        NSLog(@"passAzimuth: %f", passAsimuth);
+        NSLog(@"self.azimuth: %f", self.azimuth);
+        NSLog(@"self.maxAzimuth: %f", self.maxAzimuth);
+        NSLog(@"self.minAzimuth: %f", self.minAzimuth);
+        CGFloat xPixelPerDegree = self.bounds.size.width / 180.0f;
+        CGFloat yPixelPerDegree = self.bounds.size.height / 180.0f;
+        CGFloat xPos = (passAsimuth - self.minAzimuth) * xPixelPerDegree;
+        _maxPassView.center = CGPointMake(xPos, self.bounds.size.height / 2.0f);
+//        if (passAsimuth < self.maxAzimuth) {
+//            <#statements#>
+//        }
+    }
 }
 
 
@@ -165,7 +180,7 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 	[self.captureSession addInput:newVideoInput];
 	
 	self.captureLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-    self.captureLayer.connection.videoOrientation = UIInterfaceOrientationLandscapeLeft;
+    self.captureLayer.connection.videoOrientation = UIInterfaceOrientationLandscapeRight;
 	self.captureLayer.frame = self.captureView.bounds;
 	[self.captureLayer setVideoGravity:AVLayerVideoGravityResize];
 	[self.captureView.layer addSublayer:self.captureLayer];
