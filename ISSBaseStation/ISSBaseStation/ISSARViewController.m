@@ -15,6 +15,11 @@
 
 @implementation ISSARViewController
 
+- (void)setNextPass:(ISSPass *)nextPass {
+    _nextPass = [nextPass copy];
+    self.arView.nextPass = _nextPass;
+}
+
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscapeRight;
 }

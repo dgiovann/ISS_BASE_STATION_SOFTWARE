@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISSPass.h"
 
 @interface ISSARViewController : UIViewController
-
+@property (copy, nonatomic) ISSPass *nextPass;
 @end

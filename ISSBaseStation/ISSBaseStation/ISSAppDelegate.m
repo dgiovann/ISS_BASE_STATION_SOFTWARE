@@ -12,16 +12,28 @@
 #import "ISSStationInfo.h"
 #import "ISSPass.h"
 #import "ISSPosition.h"
+#import "ISSARViewController.h"
 
 
 @interface ISSAppDelegate () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) ISSHeavensAboveClient *heavensAboveClient;
+@property (strong, nonatomic) ISSARViewController *arViewController;
 @end
 
 @implementation ISSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]) {
+        UIViewController *firstViewController = [((UITabBarController *)self.window.rootViewController).viewControllers mtl_firstObject];
+        if ([firstViewController isKindOfClass:[ISSARViewController class]]) {
+            self.arViewController = (ISSARViewController *)firstViewController;
+        }
+    } else {
+        NSLog(@"self.window.rootViewController: %@", self.window.rootViewController);
+    }
+    
     self.heavensAboveClient = [ISSHeavensAboveClient new];
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
@@ -62,6 +74,7 @@
     [self.heavensAboveClient gitISSPassesForLocation:[locations lastObject]
                                              success:^(AFHTTPRequestOperation *operation, ISSStationInfo *stationInfo) {
                                                  NSLog(@"stationInfo: %@", stationInfo);
+                                                 self.arViewController.nextPass = [stationInfo.passes mtl_firstObject];
                                              }
                                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                  NSLog(@"oops!: %@", error);

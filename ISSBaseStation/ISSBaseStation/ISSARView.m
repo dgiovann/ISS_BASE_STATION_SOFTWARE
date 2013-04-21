@@ -9,6 +9,7 @@
 #import "ISSARView.h"
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
+#import "ISSPosition.h"
 
 #define SCREEN_OFFSET_DEGREES 22.5f
 
@@ -48,6 +49,7 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 @property (strong, nonatomic) CMMotionManager *motionManager;
 @property (strong, nonatomic) CMAttitude *referenceAttitude;
 @property (strong, nonatomic) UIView *issView;
+@property (strong, nonatomic) UIView *maxPassView;
 @property (assign, nonatomic) CGFloat azimuth;
 @property (assign, nonatomic) CGFloat minAzimuth;
 @property (assign, nonatomic) CGFloat maxAzimuth;
@@ -89,6 +91,10 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     _issView.backgroundColor = [UIColor greenColor];
     [self addSubview:_issView];
     
+    _maxPassView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
+    _maxPassView.backgroundColor = [UIColor purpleColor];
+    [self addSubview:_maxPassView];
+    
     _captureView = [[UIView alloc] initWithFrame:self.bounds];
     _captureView.bounds = self.bounds;
     _captureView.backgroundColor = [UIColor orangeColor];
@@ -104,23 +110,28 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
     [self updateISSLocation];
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    mat4f_t projectionCameraTransform;
-	multiplyMatrixAndMatrix(projectionCameraTransform,
-                            _projectionTransform,
-                            _cameraTransform);
-    vec4f_t v;
-    multiplyMatrixAndVector(v, projectionCameraTransform, _issCoordinates);
-    
-    float y = (v[0] / v[3] + 1.0f) * 0.5f;
-    float x = (v[1] / v[3] + 1.0f) * 0.5f;
-    if (v[2] < 0.0f) {
-    self.issView.center = CGPointMake(x*self.bounds.size.width, self.bounds.size.height-y*self.bounds.size.height);
-        self.issView.hidden = NO;
-    } else {
-        self.issView.hidden = YES;
-    }
+//- (void)drawRect:(CGRect)rect
+//{
+//    mat4f_t projectionCameraTransform;
+//	multiplyMatrixAndMatrix(projectionCameraTransform,
+//                            _projectionTransform,
+//                            _cameraTransform);
+//    vec4f_t v;
+//    multiplyMatrixAndVector(v, projectionCameraTransform, _issCoordinates);
+//    
+//    float y = (v[0] / v[3] + 1.0f) * 0.5f;
+//    float x = (v[1] / v[3] + 1.0f) * 0.5f;
+//    if (v[2] < 0.0f) {
+//    self.issView.center = CGPointMake(x*self.bounds.size.width, self.bounds.size.height-y*self.bounds.size.height);
+//        self.issView.hidden = NO;
+//    } else {
+//        self.issView.hidden = YES;
+//    }
+//}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _issView.hidden = YES;
+    _maxPassView.hidden = !self.nextPass;
 }
 
 
@@ -227,7 +238,7 @@ void ecefToEnu(double lat, double lon, double x, double y, double z, double xr, 
 	if (deviceMotion != nil) {
 		CMRotationMatrix r = deviceMotion.attitude.rotationMatrix;
 		transformFromRotationMatrix(_cameraTransform, &r);
-		[self setNeedsDisplay];
+		[self setNeedsLayout];
 	}
 }
 
